@@ -1,6 +1,6 @@
 public class Robot extends Character {
 
-    // hello
+    
     
     int bomb;
     int armThrow;
