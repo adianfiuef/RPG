@@ -1,4 +1,6 @@
 public class Robot extends Character {
+
+    // hello
     
     int bomb;
     int armThrow;
@@ -102,7 +104,7 @@ public class Robot extends Character {
 
         if(this.getHealth() == 0)
         {
-            System.out.println(this.getUserName() + " died game over");
+            System.out.println(this.getUserName() + " died game over"); 
         }
     }
 
