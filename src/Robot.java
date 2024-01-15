@@ -108,4 +108,18 @@ public class Robot extends Character {
         }
     }
 
+    public void repair()
+    {
+        if (this.armThrow == 0)
+        {
+
+            this.armThrow = 2;
+            
+            System.out.println("Your arms have been repaired");
+
+            this.setDefense(this.getDefense() - 2.4);
+        }
+
+    }
+
 }
