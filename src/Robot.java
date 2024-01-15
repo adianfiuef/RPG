@@ -94,6 +94,20 @@ public class Robot extends Character {
         this.setHealth(this.getHealth() - damage * 0.2);
     }
 
+    public void repair()
+    {
+        if (this.armThrow == 0)
+        {
+
+            this.armThrow = 2;
+            
+            System.out.println("Your arms have been repaired");
+
+            this.setDefense(this.getDefense() - 2.4);
+        }
+    
+    
+    // Showing side effects and losses 
     public void passive()
     {
         if(this.isPoisioned)
@@ -107,19 +121,7 @@ public class Robot extends Character {
             System.out.println(this.getUserName() + " died game over"); 
         }
     }
-
-    public void repair()
-    {
-        if (this.armThrow == 0)
-        {
-
-            this.armThrow = 2;
-            
-            System.out.println("Your arms have been repaired");
-
-            this.setDefense(this.getDefense() - 2.4);
-        }
-
-    }
+    
+    
 
 }

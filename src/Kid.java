@@ -88,6 +88,7 @@ public class Kid extends Character
         
     }
 
+    // Showing side effects and losses 
     public void passive()
     {
         if(this.isPoisioned)
@@ -95,6 +96,14 @@ public class Kid extends Character
             this.setHealth(this.getHealth() - 1.5);
             System.out.println(this.getUserName() + " is poisoned! ");
         }
+
+        if (isZapped) 
+        {
+            this.setHealth(this.getHealth() - 1.5);
+            System.out.println(this.getUserName() + " is zapped! ");
+
+        }
+
         if(this.getHealth() == 0)
         {
             System.out.println(this.getUserName() + " died game over ");
