@@ -1,7 +1,7 @@
 import java.util.Random;
 
 
-public class  Easterggs {
+public class  Eastereggs {
 
     public void randomName(Character target){
 

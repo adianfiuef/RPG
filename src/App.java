@@ -7,6 +7,9 @@ public class App {
         boolean characterSelection = true;
         Scanner scanner = new Scanner(System.in);
         int gameChoice=0;
+        Eastereggs name = new Eastereggs();
+        
+
 
         ArrayList <Character> characters = new ArrayList<Character>();
 
@@ -16,21 +19,22 @@ public class App {
             String input = scanner.nextLine();
 
             switch (input) {
-                case "kid":
+                case "kid", "Kid":
          
-                characters.add(new Kid(null, null) );
+                characters.add(new Kid("", "") );
                     
+
                     break;
             
 
-                case "robot":
+                case "robot", "Robot":
 
                 characters.add(new Robot(null,null));
 
                     break;
 
                 
-                case "warrior":
+                case "warrior", "Warrior":
 
                 characters.add(new Warrior(null, null));
         
@@ -88,5 +92,6 @@ public class App {
       
         scanner.close();
     }
+
 
 }
