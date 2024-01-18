@@ -4,6 +4,7 @@ public class Robot extends Character {
     
     int bomb;
     int armThrow;
+    int repair;
 
     public Robot(String userinfo, String userName)
     {
@@ -15,6 +16,7 @@ public class Robot extends Character {
         // Future reference
         // this.bomb = 2;
         this.armThrow = 2;
+        this.repair = 6;
 
     }
 
@@ -94,6 +96,22 @@ public class Robot extends Character {
         this.setHealth(this.getHealth() - damage * 0.2);
     }
 
+    public void repair()
+    {
+        if (this.armThrow == 0)
+        {
+
+            this.armThrow = 2;
+            
+            System.out.println("Your arms have been repaired");
+
+            this.setDefense(this.getDefense() - 2.4);
+        }   
+    
+
+    }
+
+    // Showing side effects and losses 
     public void passive()
     {
         if(this.isPoisioned)
@@ -101,11 +119,10 @@ public class Robot extends Character {
             this.setHealth(getHealth() - 0);
             System.out.println(this.getUserName() + " is invulnerable to poison");
         }
-
+  
         if(this.getHealth() == 0)
         {
             System.out.println(this.getUserName() + " died game over"); 
         }
     }
-
 }

@@ -1,20 +1,63 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
         boolean battle = true;
+        boolean characterSelection = true;
         Scanner scanner = new Scanner(System.in);
         int gameChoice=0;
+        Eastereggs name = new Eastereggs();
+        
+
+
+        ArrayList <Character> characters = new ArrayList<Character>();
+
+        while (characterSelection)
+
+        {
+            String input = scanner.nextLine();
+
+            switch (input) {
+                case "kid", "Kid":
+         
+                characters.add(new Kid("", "") );
+                    
+
+                    break;
+            
+
+                case "robot", "Robot":
+
+                characters.add(new Robot(null,null));
+
+                    break;
+
+                
+                case "warrior", "Warrior":
+
+                characters.add(new Warrior(null, null));
+        
+
+                default:
+                    break;
+            }
+        }
+
+
         System.out.println("Please type in the character names");
         String name = scanner.nextLine();
         Kid yuo = new Kid("", name );
         String name2 = scanner.nextLine();
         Kid beo = new Kid("", name2);
-        String name3 = scanner.nextLine();
-        Robot ro = new Robot("", name3);
-        System.out.println(yuo.getUserName() + "is ready to fight");
-        System.out.println(beo.getUserName() + "is ready to fight");
-        System.out.println(ro.getUserName() + "is ready to fight");
+
+        Robot ro = new Robot("", "");
+
+    
+
+        System.out.println(yuo.getUserName() + " is ready to fight");
+        System.out.println(beo.getUserName() + " is ready to fight");
+        System.out.println(ro.getUserName() + " is ready to fight");
 
         while (battle) {
             yuo.displayChoiceMenu();
@@ -28,6 +71,7 @@ public class App {
             ro.displayChoiceMenu();
             gameChoice = scanner.nextInt();
             ro.battleChoice(gameChoice, beo);
+
 
             yuo.passive();
             beo.passive();
@@ -48,5 +92,6 @@ public class App {
       
         scanner.close();
     }
+
 
 }

@@ -17,11 +17,13 @@ public class Kid extends Character
 
     public void displayChoiceMenu()
     {
+        String displayMenu[] ={"Which attack do you want to choose", "1. Stab", "2. Potion", "3. PoisonDart"};
 
-        System.out.println("Which attack do you want to choose");
-        System.out.println("1. Stab");
-        System.out.println("2. Potion");
-        System.out.println("3. PoisonDart");
+        for(String i : displayMenu)
+        {
+            System.out.println(i);
+        }
+
     }
 
     public void battleChoice(int choice, Character target)
@@ -88,6 +90,7 @@ public class Kid extends Character
         
     }
 
+    // Showing side effects and losses 
     public void passive()
     {
         if(this.isPoisioned)
@@ -95,6 +98,14 @@ public class Kid extends Character
             this.setHealth(this.getHealth() - 1.5);
             System.out.println(this.getUserName() + " is poisoned! ");
         }
+
+        if (isZapped) 
+        {
+            this.setHealth(this.getHealth() - 1.5);
+            System.out.println(this.getUserName() + " is zapped! ");
+
+        }
+
         if(this.getHealth() == 0)
         {
             System.out.println(this.getUserName() + " died game over ");
