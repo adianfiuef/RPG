@@ -103,7 +103,10 @@ public class Character {
         System.out.println("Defence: " + defense);
         System.out.println("Health: " + health);
     }
-    
+
+    public void passive(){}
+    public void stab(){}
+    public void potion(){}
 }
 
 

@@ -51,7 +51,6 @@ public class Kid extends Character
 
     }
 
-
     public void stab(Character target)
     {
 
@@ -69,7 +68,7 @@ public class Kid extends Character
         
     }
 
-
+    
     public void potion()
     {
         System.out.println(this.getUserName() + " used potion! " );
@@ -91,6 +90,7 @@ public class Kid extends Character
     }
 
     // Showing side effects and losses 
+    @Override
     public void passive()
     {
         if(this.isPoisioned)

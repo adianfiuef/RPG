@@ -6,8 +6,10 @@ public class App {
         boolean battle = true;
         boolean characterSelection = true;
         Scanner scanner = new Scanner(System.in);
-        int gameChoice=0;
-        Eastereggs name = new Eastereggs();
+        int gameChoice = 0;
+        Eastereggs egg = new Eastereggs();
+        String username;
+        int turncount = 0;
         
 
 
@@ -16,20 +18,46 @@ public class App {
         while (characterSelection)
 
         {
+            
+            System.out.println("Please type in what character you want \n1.Kid \n2.Robot \n3.Warrior \n");
+            
             String input = scanner.nextLine();
 
             switch (input) {
                 case "kid", "Kid":
+
+                System.out.println("What username and info do you want to give to this character");
+
+                username = scanner.nextLine();
          
-                characters.add(new Kid("", "") );
+                characters.add( new Kid("", username) );
                     
+                    if (username == "")
+                    
+                    {
+                        egg.randomName(characters.get(characters.size()- 1));
+                    }
+                
 
                     break;
             
+                    
 
                 case "robot", "Robot":
 
-                characters.add(new Robot(null,null));
+                System.out.println("What username and info do you want to give to this character");
+
+                 username = scanner.nextLine();
+
+                characters.add(new Robot("", username));
+
+                    if (username == "")
+
+                    {
+
+                        egg.randomName(characters.get(characters.size() - 1));
+
+                    }
 
                     break;
 
@@ -37,58 +65,97 @@ public class App {
                 case "warrior", "Warrior":
 
                 characters.add(new Warrior(null, null));
-        
+
+                 
+                break;
 
                 default:
+
+                    characterSelection = false;
+
                     break;
             }
         }
 
-
-        System.out.println("Please type in the character names");
-        String name = scanner.nextLine();
-        Kid yuo = new Kid("", name );
-        String name2 = scanner.nextLine();
-        Kid beo = new Kid("", name2);
-
-        Robot ro = new Robot("", "");
-
-    
-
-        System.out.println(yuo.getUserName() + " is ready to fight");
-        System.out.println(beo.getUserName() + " is ready to fight");
-        System.out.println(ro.getUserName() + " is ready to fight");
-
-        while (battle) {
-            yuo.displayChoiceMenu();
-            gameChoice = scanner.nextInt();
-            yuo.battleChoice(gameChoice, ro);
-
-            beo.displayChoiceMenu();
-            gameChoice = scanner.nextInt();
-            beo.battleChoice(gameChoice, yuo);
-
-            ro.displayChoiceMenu();
-            gameChoice = scanner.nextInt();
-            ro.battleChoice(gameChoice, beo);
-
-
-            yuo.passive();
-            beo.passive();
-            ro.passive();
+        for (Character e: characters)
+        
+        {
             
-
-            if (yuo.getHealth() == 0  || beo.getHealth() == 0 || ro.getHealth() == 0)
-            {
-                battle = false;
-                break;
-            }
-
-            yuo.printAttributes();
-            beo.printAttributes();
-            ro.printAttributes();
+            System.out.println(e.getUserName() + "is ready to fight");
 
         }
+
+        while (battle)
+        {
+            
+            System.out.println("it's " + characters.get(turncount).getUserName() + "'s turn");
+
+            
+
+            characters.get(turncount).passive();
+
+
+            characters.get(turncount).stab();
+
+            
+            characters.get(turncount).potion();
+
+            //game over
+            for (Character e: characters){
+                if(e.health <= 0)
+                {
+                    battle = false;
+
+                }
+            }
+
+
+            turncount++;
+            if (turncount > (characters.size() - 1))
+            
+            {
+                turncount = 0;   
+
+            }
+
+        }
+
+         
+
+
+
+
+
+        // while (battle) {
+        //     yuo.displayChoiceMenu();
+        //     gameChoice = scanner.nextInt();
+        //     yuo.battleChoice(gameChoice, ro);
+
+        //     beo.displayChoiceMenu();
+        //     gameChoice = scanner.nextInt();
+        //     beo.battleChoice(gameChoice, yuo);
+
+        //     ro.displayChoiceMenu();
+        //     gameChoice = scanner.nextInt();
+        //     ro.battleChoice(gameChoice, beo);
+
+
+        //     yuo.passive();
+        //     beo.passive();
+        //     ro.passive();
+            
+
+        //     if (yuo.getHealth() == 0  || beo.getHealth() == 0 || ro.getHealth() == 0)
+        //     {
+        //         battle = false;
+        //         break;
+        //     }
+
+        //     yuo.printAttributes();
+        //     beo.printAttributes();
+        //     ro.printAttributes();
+
+        // }
       
         scanner.close();
     }
