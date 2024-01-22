@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 
-// Nicolas Angiulli
+
 public class App {
     public static void main(String[] args) throws Exception {
         boolean battle = true;
