@@ -100,7 +100,7 @@ public class Character {
         System.out.println("Name: " + name);
         System.out.println("Info: " + info);
         System.out.println("Attacks: " + attack);
-        System.out.println("Defence: " + defense);
+        System.out.println("Defense: " + defense);
         System.out.println("Health: " + health);
     }
 

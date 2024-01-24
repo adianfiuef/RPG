@@ -116,7 +116,6 @@ public class App {
 
             targetCharacter = scanner.nextInt();
 
-
             characters.get(turncount).battleChoice(attackChoice, characters.get(targetCharacter));
 
             characters.get(turncount).passive();

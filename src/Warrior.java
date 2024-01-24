@@ -3,6 +3,7 @@ public class Warrior extends Character{
     public float attack = 70;
     public float defence = 50;
     int spear;
+    
 
     public Warrior (String username, String userinfo)
     {
@@ -43,8 +44,17 @@ public class Warrior extends Character{
         target.setisPoisoned(true);
         
 
-
     }
+
+    //Future Reference
+    // public void fireBow(Character[] targets)
+    // {
+
+    //     for(Character x: targets){
+    //         x
+    //     }
+
+    // }
 
 
 }
