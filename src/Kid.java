@@ -15,6 +15,7 @@ public class Kid extends Character
        
     }
 
+    @Override
     public void displayChoiceMenu()
     {
         String displayMenu[] ={"Which attack do you want to choose", "1. Stab", "2. Potion", "3. PoisonDart"};
@@ -26,6 +27,7 @@ public class Kid extends Character
 
     }
 
+    @Override
     public void battleChoice(int choice, Character target)
     {
         switch (choice) {
@@ -99,7 +101,7 @@ public class Kid extends Character
             System.out.println(this.getUserName() + " is poisoned! ");
         }
 
-        if (isZapped) 
+        if (this.isZapped) 
         {
             this.setHealth(this.getHealth() - 1.5);
             System.out.println(this.getUserName() + " is zapped! ");

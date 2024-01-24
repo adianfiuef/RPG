@@ -8,10 +8,14 @@ public class App {
         boolean battle = true;
         boolean characterSelection = true;
         Scanner scanner = new Scanner(System.in);
+        Scanner scannerInt = new Scanner(System.in);
         int gameChoice = 0;
         Eastereggs egg = new Eastereggs();
         String username;
         int turncount = 0;
+        int attackChoice = 0;
+        int targetCharacter = 0;
+
         
 
 
@@ -21,7 +25,7 @@ public class App {
 
         {
             
-            System.out.println("Please type in what character you want \n1.Kid \n2.Robot \n3.Warrior \n");
+            System.out.println("Please type in what character you want \nType Kid \nType Robot \nType Warrior \n");
             
             String input = scanner.nextLine();
 
@@ -68,6 +72,12 @@ public class App {
 
                 characters.add(new Warrior(null, null));
 
+                {
+
+                    egg.randomName(characters.get(characters.size()-1));
+
+                }
+
                  
                 break;
 
@@ -79,6 +89,7 @@ public class App {
             }
         }
 
+        
         for (Character e: characters)
         
         {
@@ -92,15 +103,27 @@ public class App {
             
             System.out.println("it's " + characters.get(turncount).getUserName() + "'s turn");
 
-            
+            characters.get(turncount).displayChoiceMenu();
+
+            attackChoice = scanner.nextInt();
+
+
+            for (int i = 0; i<characters.size(); i++)
+            {
+                System.out.println(i + ". attack " + characters.get(i).getUserName());
+
+            }
+
+            targetCharacter = scanner.nextInt();
+
+
+            characters.get(turncount).battleChoice(attackChoice, characters.get(targetCharacter));
 
             characters.get(turncount).passive();
-
-
-            characters.get(turncount).stab();
-
-            
-            characters.get(turncount).potion();
+   
+        
+            //delete later
+            scanner.nextLine();
 
             //game over
             for (Character e: characters){

@@ -104,9 +104,12 @@ public class Character {
         System.out.println("Health: " + health);
     }
 
+
     public void passive(){}
     public void stab(){}
     public void potion(){}
+    public void displayChoiceMenu(){}
+    public void battleChoice(int attackChoice, Character character){}
 }
 
 
